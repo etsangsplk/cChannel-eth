@@ -1,15 +1,17 @@
-// Copyright 2018 ScaleSphere Foundation Ltd. All Rights Reserved
+// Copyright 2018 Celer Network
 
 syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "network.celer.goceler.chain";
 option java_outer_classname = "ChainProto";
+option go_package = "github.com/celer-network/goCeler/rpc";
 
 package rpc;
 
 import "solidity.proto";
 
+// Next Tag: 5
 message AuthorizedWithdraw {
   repeated solidity.address peers = 1;
   repeated solidity.uint256 values = 2;
@@ -73,7 +75,7 @@ message Condition {
   	use integer type instead
   	address_type: 0 (off_chain)
   	address_type: 1 (on_chain)
-  */
+  */  
   uint32 address_type = 4;
 
   // args used to query whether the condition is finalized

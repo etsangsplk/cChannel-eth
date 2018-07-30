@@ -15,7 +15,6 @@ cChannel-eth, including cChannel for other blockchains, is currently under activ
 * **Single-contract Multiple-token Support:** supports multiple Ethereum token standards in different channels under one single contract.
 * **Ether Support:** users can specify ETH to create an Ether-based channel.
 * **ERC20 Token Support:** users can specify an ERC20 token to create an ERC20-based channel.
-* **ERC827 Token Support:** users can specify an ERC827 token to create an ERC827-based channel.
 * **Generalized State Channel:** resolves conditional state dependency by relying on dependent virtual channels.
 * **Boolean Condition Interface:** defines the condition that returns boolean value.
 * **Value Assignment Condition Interface:** defines the condition that returns value assignment.
@@ -39,6 +38,24 @@ Wait for deploy.
 
 ## Solidity Version
 Solidity `^0.4.22` or above is required to run cChannel-eth contracts.
+
+## Code Structure
+The following is the main code structure of cChannel-eth:
+### contracts folder
+* **helper**: assistant contracts during development, currently including an ERC20 example token contract.
+* **lib**: libraries for main contracts.
+	* **data**: protobuf library for solidity.
+	* **external**: external libraries, currently including openzeppelin-solidity.
+	* Some interface contracts.
+* **DepositPool.sol**: a wallet-like contract used in the process of Single-transaction Channel Opening.
+* **GenericChannel.sol**: contract of Generic Conditional Channel.
+* **HTLRegistry.sol**: contract of hash time lock registry.
+* **VirtContractResolver.sol**: contract of virtual contract resolver.
+
+### test folder
+* **helper**: assistant modules in unit tests including some modules for generating protobuf objects used in test cases.
+* **mocks**: currently including boolean condition mock contract.
+* Unit test files for corresponding contracts in contracts folder.
 
 ## Test cChannel-eth Locally
 1. Install node v8.9 or above: [https://nodejs.org]().
